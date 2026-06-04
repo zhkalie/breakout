@@ -25,7 +25,9 @@ color black = #000000;
 color white = #FFFFFF;
 
 //game entities
-float bx, by, bd, vx, vy, px, py, pd;
+float bx, by, bd; //ball
+float vx, vy; //speed
+float px, py, pd; //padles
 
 //keyboard variables
 boolean ak, dk;
@@ -60,22 +62,40 @@ void setup() {
   
   //array
   brickd = 50;
-  n = 4;
+  n = 35;
   
   x = new int[n]; //instantiation
   y = new int[n];
+  alive = new boolean [n];
   
-  x[0] = 100;
-  y[0] = 100;
+  tempx = 100;
+  tempy = 100;
   
-  x[1] = 400;
-  y[1] = 100;
+  int i = 0;
+  while ( i < n) {
+    x[i] = tempx;
+    y[i] = tempy;
+    alive[i] = true;
+    tempx = tempx + 100;
+    if (tempx == width) {
+      tempx = 100;
+      tempy = tempy + 100; 
+    }
+    i = i + 1;
+  }
   
-  x[2] = 700;
-  y[2] = 100;
   
-  x[3] = 100;
-  y[3] = 200;
+  //x[0] = 100;
+  //y[0] = 100;
+  
+  //x[1] = 400;
+  //y[1] = 100;
+  
+  //x[2] = 700;
+  //y[2] = 100;
+  
+  //x[3] = 100;
+  //y[3] = 200;
   
 }
 

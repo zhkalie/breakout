@@ -5,12 +5,9 @@ void game() {
   //paddle-------------------------------------------
   fill(white);
   circle(px, py, pd);
-  if (ak) px = px - 5;
-  if (dk) px = px + 5;
+  if (ak == true) px = px - 5;
+  if (dk == true) px = px + 5;
   
-    //moving paddles
-  if (ak == true) ly = ly - 5;
-  if (dk == true) ly = ly + 5;
     
   
   //ball---------------------------------------------
@@ -32,6 +29,16 @@ void game() {
     vx = vx * -1;
   }
   
+  if (bx <= bd/2) {
+    bx = bd/2 + 1;
+    vx *= -1;
+  }
+  
+  if (bx >= width - bd/2) {
+    bx = width - bd/2 - 1;
+    vx *= -1;
+  }
+  
   //bricks------------------------------------------
   //circle(x[0], y[0], brickd);
   //circle(x[1], y[1], brickd);
@@ -39,16 +46,39 @@ void game() {
   
   int i = 0;
   while (i < n) {
-    circle(x[i], y[i], brickd);
-    if (dist(bx, by , x[1], y[1]) < bd/2 + brickd/2) {
-      vx = (bx - x[1])/10;
-      vy = (by - x[1])/10;
+    if (alive[i] == true) {
+      managebrick(i);
     }
+    //if (y[i] == 100) fill(purple);
+    //if (y[i] == 200) fill(blue);
+    //if (y[i] == 300) fill(green);
+    //if (y[i] == 400) fill(orange);
+    //if (y[i] == 500) fill(yellow);
+    //circle(x[i], y[i], brickd);
+    //if (dist(bx, by , x[i], y[i]) < bd/2 + brickd/2) {
+    //  vx = (bx - x[i])/10;
+    //  vy = (by - y[i])/10;
     i = i + 1;
   }
 }
 
 void gameclick(){
   
+  
+}
+
+
+void managebrick (int i) {
+    if (y[i] == 100) fill(purple);
+    if (y[i] == 200) fill(blue);
+    if (y[i] == 300) fill(green);
+    if (y[i] == 400) fill(orange);
+    if (y[i] == 500) fill(yellow);
+    circle(x[i], y[i], brickd);
+    if (dist(bx, by , x[i], y[i]) < bd/2 + brickd/2) {
+      vx = (bx - x[i])/10;
+      vy = (by - y[i])/10;
+      alive[i] = false;
+    }
   
 }
