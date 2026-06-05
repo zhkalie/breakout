@@ -43,7 +43,7 @@ int tempx, tempy;
 
 void setup() {
   size(800, 850);
-  mode = game;
+  mode = intro;
   
   matcha = createFont("Matcha Cih.ttf", 130);
   

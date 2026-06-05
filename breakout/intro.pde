@@ -10,8 +10,8 @@ void intro() {
 }
 
 void introclick(){
-  //if(mouseX, mouseY){
-  //  mode = game;
-  //}
+  if ( mouseX > 0 && mouseX < 800 && mouseY > 0 && mouseY < 850) {
+    mode = game;
+    }
   
 }
