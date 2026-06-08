@@ -1,5 +1,11 @@
 void pause() {
   
+  textSize(170);
+  fill(white);
+  text("Paused!", width/2, height/2);
+  fill(sweetiepink);
+  textSize(160);
+  text("Paused!", width/2, height/2);
   
 }
 

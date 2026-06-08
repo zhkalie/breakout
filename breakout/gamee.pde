@@ -1,5 +1,28 @@
 void game() {
-  background(cherrychiffon);
+  background(cherrychiffon, 20);
+  
+  //score and lives
+  textSize(50);
+  fill(sweetiepink);
+  text("Score: " + score, 150, 820);
+  text("Lives: " + lives, 650, 820);
+  
+  //time
+  time--;
+  if(time <= 0) {
+    time = 0;
+  }
+  
+  //lives
+  if(by >= 850) {
+    lives--;
+    bx = width/2;
+    by = height-200;
+    time = 50;
+  } 
+  
+  if (lives == 0) mode = gameover;
+  
   
 
   //paddle-------------------------------------------
@@ -13,9 +36,12 @@ void game() {
   //ball---------------------------------------------
   fill(white);
   circle(bx, by, bd);
+    
     //movement
-  bx = bx + vx;
-  by = by + vy;
+  if(time <= 0) {
+    bx = bx + vx;
+    by = by + vy;
+  }
   
   //bounce off paddle
   if (dist(bx, by, px, py) < bd/2 + pd/2) {
@@ -79,6 +105,10 @@ void managebrick (int i) {
       vx = (bx - x[i])/10;
       vy = (by - y[i])/10;
       alive[i] = false;
+      score = score + 100;
+      if (score == 3500) {
+        mode = gameover;
+      }
     }
   
 }

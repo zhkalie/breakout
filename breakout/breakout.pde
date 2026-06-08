@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 
 //framework
 int mode;
@@ -40,6 +47,8 @@ int brickd;
 int n;
 int tempx, tempy;
 
+//win
+int score, lives, highscore, time;
 
 void setup() {
   size(800, 850);
@@ -59,6 +68,11 @@ void setup() {
   pd = 100;
   vx = 0;
   vy = 1;
+  
+  //score, lives, time
+  score = 0;
+  lives = 3;
+  time = 100;
   
   //array
   brickd = 50;
