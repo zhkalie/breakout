@@ -5,6 +5,11 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+//gif
+PImage[] gif;
+int numberofframes;
+int f;
+
 
 //framework
 int mode;
@@ -58,6 +63,41 @@ void setup() {
   
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
+  
+  //gif
+  numberofframes = 24;
+  gif = new PImage [numberofframes];
+  
+  int u = 0;
+  while ( u < numberofframes) {
+    gif[u] = loadImage("frame_"+u+"_delay-0.06s.gif");
+    u = u + 1;
+  }
+  
+  gif[0] = loadImage("frame_00_delay-0.06s.gif");
+  gif[1] = loadImage("frame_01_delay-0.06s.gif");
+  gif[2] = loadImage("frame_02_delay-0.06s.gif");
+  gif[3] = loadImage("frame_03_delay-0.06s.gif");
+  gif[4] = loadImage("frame_04_delay-0.06s.gif");
+  gif[5] = loadImage("frame_05_delay-0.06s.gif");
+  gif[6] = loadImage("frame_06_delay-0.06s.gif");
+  gif[7] = loadImage("frame_07_delay-0.06s.gif");
+  gif[8] = loadImage("frame_08_delay-0.06s.gif");
+  gif[9] = loadImage("frame_09_delay-0.06s.gif");
+  gif[10] = loadImage("frame_10_delay-0.06s.gif");
+  gif[11] = loadImage("frame_11_delay-0.06s.gif");
+  gif[12] = loadImage("frame_12_delay-0.06s.gif");
+  gif[13] = loadImage("frame_13_delay-0.06s.gif");
+  gif[14] = loadImage("frame_14_delay-0.06s.gif");
+  gif[15] = loadImage("frame_15_delay-0.06s.gif");
+  gif[16] = loadImage("frame_16_delay-0.06s.gif");
+  gif[17] = loadImage("frame_17_delay-0.06s.gif");
+  gif[18] = loadImage("frame_18_delay-0.06s.gif");
+  gif[19] = loadImage("frame_19_delay-0.06s.gif");
+  gif[20] = loadImage("frame_20_delay-0.06s.gif");
+  gif[21] = loadImage("frame_21_delay-0.06s.gif");
+  gif[22] = loadImage("frame_22_delay-0.06s.gif");
+  gif[23] = loadImage("frame_23_delay-0.06s.gif");
   
   //set up
   bx = width/2;

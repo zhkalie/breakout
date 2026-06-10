@@ -18,6 +18,12 @@ void intro() {
   text("*", 590, 700);
   text("*", 760, 810);
   text("*", 260, 800);
+  
+  
+  image(gif[f], 530, 500, 250, 330); 
+  println(frameCount);
+  if (frameCount % 3 == 0) f = f + 1;
+  if (f == numberofframes) f = 0;
 }
 
 void introclick(){
